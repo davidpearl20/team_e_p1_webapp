@@ -1,26 +1,24 @@
 {
 	"info": {
-		"_postman_id": "bf8815bb-0f8e-4a17-9f49-095a161a6306",
-		"name": "EC2",
+		"_postman_id": "89548571-74fd-468d-a55c-a6d3c2ac9a65",
+		"name": "local p1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "local ping Copy",
+			"name": "local ping",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://18.222.211.210:8080/ping",
+					"raw": "http://localhost:8080/webapp/ping",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"ping"
 					]
 				}
@@ -28,21 +26,19 @@
 			"response": []
 		},
 		{
-			"name": "get all flights Copy",
+			"name": "get all flights",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://18.222.211.210:8080/flights",
+					"raw": "http://localhost:8080/webapp/flights",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"flights"
 					]
 				}
@@ -50,21 +46,19 @@
 			"response": []
 		},
 		{
-			"name": "Get customer by first,last name Copy",
+			"name": "Get customer by first,last name",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://18.222.211.210:8080/customer?First Name=Dave&Last Name=Bautista",
+					"raw": "http://localhost:8080/webapp/customer?First Name=Dave&Last Name=Bautista",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"customer"
 					],
 					"query": [
@@ -82,21 +76,19 @@
 			"response": []
 		},
 		{
-			"name": "get flights by depart,dest Copy",
+			"name": "get flights by depart,dest",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://18.222.211.210:8080/flightLookup?departureLocation=Jonestown&DestinationLocation=Washington DC",
+					"raw": "http://localhost:8080/webapp/flightLookup?departureLocation=Jonestown&DestinationLocation=Washington DC",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"flightLookup"
 					],
 					"query": [
@@ -114,7 +106,7 @@
 			"response": []
 		},
 		{
-			"name": "purchase ticket Copy",
+			"name": "purchase ticket",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -128,16 +120,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://18.222.211.210:8080/purchase",
+					"raw": "http://localhost:8080/webapp/purchase",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"purchase"
 					]
 				}
@@ -145,13 +135,13 @@
 			"response": []
 		},
 		{
-			"name": "create customer Copy",
+			"name": "create customer",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstname\":\"Alec\",\r\n    \"lastname\":\"Baldwin\",\r\n    \"customernum\":123\r\n}",
+					"raw": "{\r\n    \"firstname\":\"Alec1\",\r\n    \"lastname\":\"Baldwin1\",\r\n    \"customernum\":12312\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -159,16 +149,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://18.222.211.210:8080/createCustomer",
+					"raw": "http://localhost:8080/webapp/createCustomer",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"createCustomer"
 					]
 				}
@@ -176,7 +164,7 @@
 			"response": []
 		},
 		{
-			"name": "local createflight Copy",
+			"name": "local createflight",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -190,16 +178,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://18.222.211.210:8080/createFlight",
+					"raw": "http://localhost:8080/webapp/createFlight",
 					"protocol": "http",
 					"host": [
-						"18",
-						"222",
-						"211",
-						"210"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
+						"webapp",
 						"createFlight"
 					]
 				}
