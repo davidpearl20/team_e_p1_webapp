@@ -29,7 +29,4 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
-- task: MavenAuthenticate@0
-  inputs:
-    artifactsFeeds: 'orm'
+    sqMavenPluginVersionChoice: 'pom'
