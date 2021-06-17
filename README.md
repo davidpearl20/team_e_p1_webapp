@@ -29,9 +29,9 @@ With these settings in place, hit Apply/OK and you are ready to go. Select your 
 You will see a bunch of red text rolling through the terminal, these are not necessarily errors. Look for the line indicating your server is running which will be something like: "16-Jun-2021 13:08:20.563 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1261] milliseconds". Your server is now awaiting web requests.
 
  
-For further details about Smart Tomcat integration with IntelliJ see here: https://github.com/zengkid/SmartTomcat. 
+ For further details about Smart Tomcat integration with IntelliJ see here: https://github.com/zengkid/SmartTomcat. 
  
- 
+ For a simple tutorial on setting up a new Java Servlet app with Tomcat, see here: https://github.com/KylePlummerBSCS/simple-servlets
 
 ## GET Endpoints
  Some of these endpoints expect data to be sent as a URL encoded form.
