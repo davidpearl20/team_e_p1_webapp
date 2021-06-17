@@ -30,3 +30,6 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
+- task: MavenAuthenticate@0
+  inputs:
+    artifactsFeeds: 'orm'
