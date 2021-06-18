@@ -13,11 +13,11 @@ resources:
   repositories:
   - repository: team_e_p1_webapp
     type: github
-    endpoint: MyGitHubServiceConnection
+    endpoint: Flock of Hawks
     name: davidpearl20/team_e_p1_webapp
   - repository: team_e_p1_orm
     type: github
-    endpoint: MyGitHubServiceConnection
+    endpoint: Flock of Hawks
     name: davidpearl20/team_e_p1_orm
 
 pool:
