@@ -4,14 +4,6 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-resources:
-  pipelines:
-  - pipeline: orm_pipeline
-    source: davids_test_orm_pipelien
-    project: Flock of Hawks
-    trigger: true 
-
-
 pool:
   vmImage: ubuntu-latest
 
