@@ -4,11 +4,21 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+
+
 trigger:
 - main
 
 resources:
-- repo: self
+  repositories:
+  - repository: team_e_p1_webapp
+    type: github
+    endpoint: MyGitHubServiceConnection
+    name: davidpearl20/team_e_p1_webapp
+  - repository: team_e_p1_orm
+    type: github
+    endpoint: MyGitHubServiceConnection
+    name: davidpearl20/team_e_p1_orm
 
 pool:
   vmImage: ubuntu-latest
