@@ -7,18 +7,14 @@
 
 
 trigger:
-- main
+- dev
 
 resources:
-  repositories:
-  - repository: team_e_p1_webapp
-    type: github
-    endpoint: Flock of Hawks
-    name: davidpearl20/team_e_p1_webapp
-  - repository: team_e_p1_orm
-    type: github
-    endpoint: Flock of Hawks
-    name: davidpearl20/team_e_p1_orm
+  pipelines:
+  - pipeline: orm_pipeline
+    source: davids_test_orm_pipelien
+    project: Flock of Hawks
+    trigger: true 
 
 pool:
   vmImage: ubuntu-latest
