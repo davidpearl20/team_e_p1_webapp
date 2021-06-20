@@ -13,6 +13,32 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+         
+    <repositories>    
+        <repository>
+            <id>webapp</id>
+            <url>https://pkgs.dev.azure.com/revature-training-uta/24909f86-8d03-4826-8947-55d471b47b72/_packaging/webapp/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+         
+    <distributionManagement>
+        <repository>
+            <id>webapp</id>
+            <url>https://pkgs.dev.azure.com/revature-training-uta/24909f86-8d03-4826-8947-55d471b47b72/_packaging/webapp/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -82,31 +108,7 @@
 
     </dependencies>
      
-    <repositories>    
-        <repository>
-            <id>webapp</id>
-            <url>https://pkgs.dev.azure.com/revature-training-uta/24909f86-8d03-4826-8947-55d471b47b72/_packaging/webapp/maven/v1</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-         
-    <distributionManagement>
-        <repository>
-            <id>webapp</id>
-            <url>https://pkgs.dev.azure.com/revature-training-uta/24909f86-8d03-4826-8947-55d471b47b72/_packaging/webapp/maven/v1</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </distributionManagement>
+   
 
     <build>
         <plugins>
