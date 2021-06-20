@@ -16,9 +16,7 @@
 
     <dependencies>
         <dependency>
-            <!-- <groupId>eteam</groupId> -->
             <artifactId>eorm</artifactId>
-            <!-- <version>1.0</version> -->
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
