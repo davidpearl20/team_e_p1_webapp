@@ -1,68 +1,45 @@
-# Maven package Java project Web App to Linux on Azure
-# Build your Java project and deploy it to Azure as a Linux web app
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
-trigger:
-- main
-
 variables:
-
-  # Azure Resource Manager connection created during pipeline creation
-  azureSubscription: 'ff66b110-15f7-44e9-add6-41d8844ca3cb'
-
-  # Web app name
-  webAppName: ''
-
-  # Environment name
-  environmentName: ''
-
-  # Agent VM image name
-  vmImageName: 'ubuntu-latest'
-
-stages:
-- stage: Build
-  displayName: Build stage
-  jobs:
-  - job: MavenPackageAndPublishArtifacts
-    displayName: Maven Package and Publish Artifacts
-    pool:
-      vmImage: $(vmImageName)
-
-    steps:
-    - task: Maven@3
-      displayName: 'Maven Package'
-      inputs:
-        mavenPomFile: 'pom.xml'
-
-    - task: CopyFiles@2
-      displayName: 'Copy Files to artifact staging directory'
-      inputs:
-        SourceFolder: '$(System.DefaultWorkingDirectory)'
-        Contents: '**/target/*.?(war|jar)'
-        TargetFolder: $(Build.ArtifactStagingDirectory)
-
-    - upload: $(Build.ArtifactStagingDirectory)
-      artifact: drop
-
-- stage: Deploy
-  displayName: Deploy stage
-  dependsOn: Build
-  condition: succeeded()
-  jobs:
-  - deployment: DeployLinuxWebApp
-    displayName: Deploy Linux Web App
-    environment: $(environmentName)
-    pool:
-      vmImage: $(vmImageName)
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: '
-            inputs:
-              azureSubscription: $(azureSubscription)
-              appType: webAppLinux
-              appName: $(webAppName)
-              package: '$(Pipeline.Workspace)/drop/**/target/*.?(war|jar)'
+- name: BuildParameters.mavenPOMFile
+  value: pom.xml
+resources:
+  pipelines:
+  - pipeline: PipelineNotFound
+    source: PipelineNotFound
+    trigger:
+      branches:
+        include:
+        - main
+  repositories:
+  - repository: self
+    type: git
+    ref: main
+name: $(date:yyyyMMdd)$(rev:.r)
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-16.04
+  steps:
+  - checkout: self
+  - task: MavenAuthenticate@0
+    displayName: Maven Authenticate
+    inputs:
+      artifactsFeeds: webapp
+  - task: Maven@3
+    displayName: Maven pom.xml
+    inputs:
+      mavenPOMFile: $(BuildParameters.mavenPOMFile)
+      mavenFeedAuthenticate: true
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+    condition: succeededOrFailed()
+    inputs:
+      SourceFolder: $(system.defaultworkingdirectory)
+      Contents: '**/*.jar'
+      TargetFolder: $(build.artifactstagingdirectory)
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeededOrFailed()
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+...
