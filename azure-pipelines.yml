@@ -2,13 +2,6 @@ variables:
 - name: BuildParameters.mavenPOMFile
   value: pom.xml
 resources:
-  pipelines:
-  - pipeline: PipelineNotFound
-    source: PipelineNotFound
-    trigger:
-      branches:
-        include:
-        - main
   repositories:
   - repository: self
     type: git
