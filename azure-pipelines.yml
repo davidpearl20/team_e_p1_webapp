@@ -17,7 +17,25 @@ jobs:
   - task: MavenAuthenticate@0
     displayName: Maven Authenticate
     inputs:
-      artifactsFeeds: webapp
+        artifactsFeeds: webapp
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      goals: 'install:install-file'
+      options: >
+        -Dfile="eorm-1.0.jar"
+        -DgroupId="eteam"
+        -DartifactId="eorm"
+        -Dversion="1.0"
+        -Dpackaging=jar
+        -DgeneratePom=true
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      mavenVersionOption: 'Default'
+      mavenAuthenticateFeed: false
+      effectivePomSkip: false
+      sonarQubeRunAnalysis: false
   - task: Maven@3
     displayName: Maven pom.xml
     inputs:
